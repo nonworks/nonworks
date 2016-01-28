@@ -1,4 +1,6 @@
-# Nonworks - Web Applications that work without frameworks.
+# Nonworks
+
+## Web Applications that work without frameworks
 
 This is in progress and the author is very, very, busy writing code. Documentation is important, but just not fun when you're the only one using the code.
 
