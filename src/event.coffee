@@ -1,0 +1,30 @@
+module.exports =
+Event = ->
+    cbs = {}
+
+    {
+        registerEvents: (events...) ->
+            for e in events
+                cbs[e] = []
+
+        on: (event, cb) ->
+            event = cbs[event] or throw("Can't register to event '#{event}' - it doesn't exist")
+            event.push cb
+
+        trigger: (event, args) ->
+            cb(args) for cb in cbs[event]
+            return null
+
+        getEvents: ->
+            Object.keys(cbs)
+
+        hasEvent: (event) ->
+            (event in cbs)
+
+        pipeFrom: (others...) ->
+            others.forEach (other) ->
+                other.getEvents().forEach (event) ->
+                    do (other, event) ->
+                        cbs[event] or= []
+                        other.on event, (args...) -> trigger event, args...
+    }
