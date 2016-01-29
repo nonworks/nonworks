@@ -1,8 +1,8 @@
 Component = require 'component'
-{div} = require 'elements'
-
 Text = require 'input/text'
 Button = require 'input/button'
+
+{div} = require 'elements'
 
 module.exports =
 Form = ({fields, submit}) ->

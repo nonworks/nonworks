@@ -5,7 +5,9 @@ module.exports = (component) ->
 
     holder = document.createElement 'div'
     notify = document.createElement 'div'
+    buttons = document.createElement 'div'
 
+    el.appendChild buttons
     el.appendChild notify
     el.appendChild holder
 
@@ -24,4 +26,15 @@ module.exports = (component) ->
 
         setWidth: (px) ->
             holder.style.width = "#{px}px"
+
+        setHeight: (px) ->
+            holder.style.height = "#{px}px"
+
+        addButton: (text, cb) ->
+            button = document.createElement 'button'
+            button.textContent = text
+            button.style.display = 'inline-block'
+            button.style.padding = '10px'
+            button.addEventListener 'click', cb
+            buttons.appendChild button
     }

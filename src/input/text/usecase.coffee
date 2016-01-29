@@ -1,23 +1,13 @@
-require 'usecase'
-
+Usecase = require 'usecase'
 Text = require './'
 
-module.exports = ->
-    text = Text placeholder: 'Placeholder'
+text = Text placeholder: 'Placeholder'
+usecase = Usecase(text)
 
-    {
-        render: ->
-            el = document.createElement('div')
-            el.style.height = '50px'
-            el.style.width = '250px'
+usecase.setWidth 250
+usecase.setHeight 50
 
-            el.appendChild text.render()
+usecase.addButton 'Get Value', ->
+    usecase.notify text.getText()
 
-            button = document.createElement('button')
-            button.textContent = "Get Value"
-            button.addEventListener 'click', ->
-                button.textContent = text.getText()
-
-            el.appendChild button
-            el
-    }
+module.exports = usecase.build()

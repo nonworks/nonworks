@@ -1,7 +1,6 @@
 require('insert-css')(require('./index.styl'))
 Component = require 'component'
-elem = require 'elements'
-div = elem.div
+{elem, div} = require 'elements'
 
 module.exports =
 Text = ({placeholder}) ->

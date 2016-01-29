@@ -1,6 +1,6 @@
 require('insert-css')(require('./index.styl'))
 Component = require 'component'
-elem = require 'elements'
+{elem} = require 'elements'
 
 module.exports =
 Button = ({label, icon, theme}) ->
