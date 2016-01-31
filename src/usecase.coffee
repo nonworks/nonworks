@@ -1,7 +1,7 @@
 require('insert-css')(require './index.styl')
 
 module.exports = (component) ->
-    el = document.createElement 'div'
+    el = document.createDocumentFragment()
 
     holder = document.createElement 'div'
     notify = document.createElement 'div'
@@ -9,9 +9,7 @@ module.exports = (component) ->
 
     el.appendChild buttons
     el.appendChild notify
-    el.appendChild holder
-
-    holder.appendChild component.render()
+    el.appendChild component.render()
 
     notify.style['background-color'] = 'white'
 
