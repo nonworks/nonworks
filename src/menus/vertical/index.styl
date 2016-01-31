@@ -1,0 +1,48 @@
+.vertical-menu-curtain
+    width: 300px
+    position: fixed
+    top: 0
+    bottom: 0
+    background-color: black
+    z-index: -1
+    box-shadow: 2px 0px 0px 2px #222
+
+.vertical-menu
+    width: 300px
+    text-align: center
+
+    > .vertical-menu-button
+        font-size: 24px
+        background-color: black
+        border: 0
+        width: 100%
+        border-bottom: 2px solid #222
+        color: #ddd
+        padding: 13px
+        cursor: pointer
+        display: block
+
+        &:last-child
+            border-bottom: 0px
+
+        &:hover
+            background-color: #222
+
+    > .childholder
+        display: none
+
+        > .vertical-menu-button-child
+            font-size: 18px
+            background-color: black
+            border: 0
+            width: 100%
+            border-bottom: 2px solid #222
+            color: #ddd
+            padding: 13px
+            cursor: pointer
+            display: block
+            padding-left: 50px
+            border-left: 50px #222 solid
+
+            &:hover
+                background-color: #222

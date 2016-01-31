@@ -13,6 +13,8 @@ module.exports = (component) ->
 
     holder.appendChild component.render()
 
+    notify.style['background-color'] = 'white'
+
     {
         notify: (data) ->
             notify.textContent = JSON.stringify(data)
