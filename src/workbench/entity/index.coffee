@@ -13,11 +13,29 @@ Entity = ({element, width=100, height=100})->
     mover = undefined
     el = undefined
 
+    setLeft = (x) ->
+        el.style.left = "#{x}px"
+
+    setTop = (y) ->
+        el.style.top = "#{y}px"
+
+    setWidth = (w) ->
+        el.style.width = "#{w}px"
+
+    setHeight = (w) ->
+        el.style.height = "#{w}px"
+
     component.getX = ->
         left
 
     component.getY = ->
         top
+
+    component.setPosition = (x,y) ->
+        left = x
+        top = y
+        setLeft(x)
+        setTop(y)
 
     component.getWidth = ->
         width
@@ -36,8 +54,8 @@ Entity = ({element, width=100, height=100})->
     component.render = ->
         el = div 'workbench-entity'
 
-        el.style.width = "#{width}px"
-        el.style.height = "#{height}px"
+        setWidth(width)
+        setHeight(height)
 
         el.appendChild right = div 'right'
         el.appendChild bottom = div 'bottom'
@@ -84,18 +102,18 @@ Entity = ({element, width=100, height=100})->
             if movingRight
                 width = oldwidth - (oldx - e.clientX)
                 width = 30 if width < 30
-                el.style.width = "#{width}px"
+                setWidth(width)
 
             if movingBottom
                 height = oldheight - (oldy - e.clientY)
                 height = 30 if height < 30
-                el.style.height = "#{height}px"
+                setHeight(height)
 
             if moving
                 left = oldleft + e.clientX - oldx
                 top = oldtop + e.clientY - oldy
-                el.style.left = "#{left}px"
-                el.style.top = "#{top}px"
+                setLeft(left)
+                setTop(top)
 
         el
 

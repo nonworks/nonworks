@@ -18,4 +18,7 @@ usecase.addButton 'set movable', ->
 usecase.addButton 'unset movable', ->
     entity.setMovable false
 
+usecase.addButton 'move to 500,500', ->
+    entity.setPosition 500, 500
+
 module.exports = usecase.build()
