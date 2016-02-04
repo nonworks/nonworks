@@ -8,6 +8,11 @@ Entity = ({element, width=100, height=100})->
     top = 0
     component = Component()
 
+    right = undefined
+    bottom = undefined
+    mover = undefined
+    el = undefined
+
     component.getX = ->
         left
 
@@ -19,6 +24,14 @@ Entity = ({element, width=100, height=100})->
 
     component.getHeight = ->
         height
+
+    component.setMovable = (movable) ->
+        if movable
+            right.style.display = bottom.style.display = mover.style.display = 'block'
+            el.classList.remove 'no-border'
+        else
+            right.style.display = bottom.style.display = mover.style.display = 'none'
+            el.classList.add 'no-border'
 
     component.render = ->
         el = div 'workbench-entity'

@@ -12,4 +12,10 @@ usecase = Usecase(entity)
 usecase.addButton 'Get position', ->
     usecase.notify "X: #{entity.getX()}  Y: #{entity.getY()}  Size: #{entity.getWidth()}x#{entity.getHeight()}"
 
+usecase.addButton 'set movable', ->
+    entity.setMovable true
+
+usecase.addButton 'unset movable', ->
+    entity.setMovable false
+
 module.exports = usecase.build()
