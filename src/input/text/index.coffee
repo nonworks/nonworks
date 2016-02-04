@@ -31,4 +31,7 @@ Text = ({placeholder}) ->
     shared.getText = ->
         input.value
 
+    shared.setText = (newText) ->
+        input.value = newText
+
     shared
