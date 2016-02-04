@@ -3,13 +3,12 @@ require('insert-css')(require './index.styl')
 module.exports = (component) ->
     el = document.createDocumentFragment()
 
-    holder = document.createElement 'div'
     notify = document.createElement 'div'
     buttons = document.createElement 'div'
 
     el.appendChild buttons
     el.appendChild notify
-    el.appendChild component.render()
+    el.appendChild cel = component.render()
 
     notify.style['background-color'] = 'white'
 
@@ -25,10 +24,10 @@ module.exports = (component) ->
                 }
 
         setWidth: (px) ->
-            holder.style.width = "#{px}px"
+            cel.style.width = "#{px}px"
 
         setHeight: (px) ->
-            holder.style.height = "#{px}px"
+            cel.style.height = "#{px}px"
 
         addButton: (text, cb) ->
             button = document.createElement 'button'
