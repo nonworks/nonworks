@@ -3,7 +3,7 @@ Component = require 'component'
 {elem, div} = require 'elements'
 
 module.exports =
-Text = ({placeholder}) ->
+Text = ({placeholder=''}={}) ->
     shared = Component()
     input= null
 
