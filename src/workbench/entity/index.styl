@@ -3,7 +3,7 @@ $handlesize = 18px
 
 .workbench-entity
     position: absolute
-    padding: $handlesize
+    margin: $handlesize
     border: 1px dashed black
 
     > .child
@@ -16,28 +16,15 @@ $handlesize = 18px
         background-size: $handlesize $handlesize
         height: $handlesize
         width: $handlesize
-
-    > .left
-        left: 0px
-        top: 50%
-        cursor: w-resize
-        transform: translate(0px, -9px)
-
     
     > .right
-        right: 0px
+        right: - $handlesize
         top: 50%
         cursor: e-resize
         transform: rotate(180deg) translate(0px, 9px)
 
-    > .top
-        top: 0px 
-        left: 50%
-        transform: rotate(90deg) translate(0px, 9px)
-        cursor: n-resize
-
     > .bottom
-        bottom: 0px 
+        bottom: - $handlesize
         left: 50%
         transform: rotate(270deg) translate(0px, -9px)
         cursor: s-resize
