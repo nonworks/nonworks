@@ -12,4 +12,10 @@ usecase.addButton 'Create', ->
 
     workbench.addEntity el
 
+usecase.addButton 'Turn on editable', ->
+    workbench.setEditable true
+
+usecase.addButton 'Turn off editable', ->
+    workbench.setEditable false
+
 module.exports = usecase.build()

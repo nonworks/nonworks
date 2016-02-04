@@ -8,6 +8,7 @@ Workbench = ({map}) ->
     component = Component()
 
     el = undefined
+    entities = []
 
     component.render = ->
         el = div 'workbench'
@@ -22,6 +23,10 @@ Workbench = ({map}) ->
         entity = Entity(element: element)
 
         el.appendChild entity.render()
+        entities.push entity
 
+    component.setEditable = (isEditable) ->
+        for e in entities
+            e.setMovable(isEditable)
 
     component
