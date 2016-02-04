@@ -13,4 +13,7 @@ usecase.addButton 'Get text', ->
 usecase.addButton 'Set text', ->
     text.setText('Nonworks!')
 
+text.on 'submit', ->
+    usecase.notify 'submit!'
+
 module.exports = usecase.build()

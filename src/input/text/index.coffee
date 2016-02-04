@@ -8,6 +8,8 @@ Text = ({placeholder=''}={}) ->
     input= null
     cross = undefined
 
+    shared.registerEvents 'submit'
+
     updateCross = ->
         if shared.getText().length > 0
             cross.style.display = 'block'
@@ -19,7 +21,9 @@ Text = ({placeholder=''}={}) ->
 
         input = elem 'input'
         input.setAttribute 'placeholder', (placeholder or '')
-        input.addEventListener 'keyup', ->
+        input.addEventListener 'keyup', (e) ->
+            if e.which == 13 or e.keyCode == 13
+                shared.trigger 'submit'
             updateCross()
 
         cross = div('input-cross')
