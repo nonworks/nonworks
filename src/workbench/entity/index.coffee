@@ -3,11 +3,12 @@ Component = require 'component'
 {div, elem} = require 'elements'
 
 module.exports =
-Entity = ({element, width=100, height=100})->
+Entity = ({width=100, height=100}={})->
     left = 0
     top = 0
     component = Component()
 
+    child = undefined
     right = undefined
     bottom = undefined
     mover = undefined
@@ -24,6 +25,9 @@ Entity = ({element, width=100, height=100})->
 
     setHeight = (w) ->
         el.style.height = "#{w}px"
+
+    component.getBody = ->
+        return child
 
     component.getX = ->
         left
@@ -61,8 +65,6 @@ Entity = ({element, width=100, height=100})->
         el.appendChild bottom = div 'bottom'
         el.appendChild mover = div 'mover'
         el.appendChild child = div 'child'
-
-        child.appendChild element
 
         oldleft = oldtop = 0
         oldheight = 0

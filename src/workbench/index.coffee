@@ -19,8 +19,8 @@ Workbench = ({map}) ->
 
         el
 
-    component.addEntity = (element) ->
-        entity = Entity(element: element)
+    component.addEntity = ->
+        entity = Entity()
 
         el.appendChild entity.render()
         entities.push entity
