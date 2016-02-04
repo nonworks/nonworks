@@ -6,6 +6,13 @@ module.exports =
 Text = ({placeholder=''}={}) ->
     shared = Component()
     input= null
+    cross = undefined
+
+    updateCross = ->
+        if shared.getText().length > 0
+            cross.style.display = 'block'
+        else
+            cross.style.display = 'none'
 
     shared.render = ->
         el = div 'input'
@@ -13,10 +20,7 @@ Text = ({placeholder=''}={}) ->
         input = elem 'input'
         input.setAttribute 'placeholder', (placeholder or '')
         input.addEventListener 'keyup', ->
-            if shared.getText().length > 0
-                cross.style.display = 'block'
-            else
-                cross.style.display = 'none'
+            updateCross()
 
         cross = div('input-cross')
         cross.addEventListener 'click', ->
@@ -33,5 +37,6 @@ Text = ({placeholder=''}={}) ->
 
     shared.setText = (newText) ->
         input.value = newText
+        updateCross()
 
     shared
