@@ -24,3 +24,4 @@ el.style.width = '100%'
 el.style.height = '100%'
 entity.getBody().appendChild el
 
+entity.setPosition 10, 50
