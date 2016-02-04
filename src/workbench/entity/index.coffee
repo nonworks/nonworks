@@ -31,8 +31,6 @@ Entity = ({element, width=100, height=100})->
         el.appendChild mover = div 'mover'
         el.appendChild child = div 'child'
 
-        element.style.width = "100%"
-        element.style.height = "100%"
         child.appendChild element
 
         oldleft = oldtop = 0
