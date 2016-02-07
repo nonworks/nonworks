@@ -11,7 +11,7 @@ EditableLabel = ({text=''}={}) ->
     textEl = undefined
     labelEl = undefined
 
-    component.registerEvent 'change'
+    component.registerEvents 'change'
 
     hideInput = ->
         textEl.style.display = 'none'

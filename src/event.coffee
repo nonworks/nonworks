@@ -4,8 +4,8 @@ Event = ->
 
     {
         registerEvents: (events...) ->
-            for e in events
-                cbs[e] = []
+            cbs[e] = [] for e in events
+            null
 
         on: (event, cb) ->
             event = cbs[event] or throw("Can't register to event '#{event}' - it doesn't exist")
