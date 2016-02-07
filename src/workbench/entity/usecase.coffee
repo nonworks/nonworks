@@ -16,6 +16,9 @@ usecase.addButton 'unset movable', ->
 usecase.addButton 'move to 500,500', ->
     entity.setPosition 500, 500
 
+usecase.addButton 'get configuration', ->
+    usecase.notify entity.getConfiguration()
+
 module.exports = usecase.build()
 
 el = document.createElement 'div'

@@ -47,6 +47,12 @@ Entity = ({width=100, height=100}={})->
     component.getHeight = ->
         height
 
+    component.getConfiguration = ->
+        {
+            position: [component.getX(), component.getY()]
+            size: [component.getWidth(), component.getHeight()]
+        }
+
     component.setMovable = (movable) ->
         if movable
             right.style.display = bottom.style.display = mover.style.display = 'block'
