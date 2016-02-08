@@ -3,9 +3,11 @@ Component = require 'component'
 {div, elem} = require 'elements'
 
 module.exports =
-Entity = ({width=100, height=100}={})->
-    left = 0
-    top = 0
+Entity = ({size=[100, 100], position=[0,0]}={})->
+    height = size[1]
+    width = size[0]
+    left = position[0]
+    top = position[1]
     component = Component()
 
     child = undefined
@@ -15,10 +17,10 @@ Entity = ({width=100, height=100}={})->
     el = undefined
 
     setLeft = (x) ->
-        el.style.left = "#{x}px"
+        el.style['margin-left'] = "#{x}px"
 
     setTop = (y) ->
-        el.style.top = "#{y}px"
+        el.style['margin-top'] = "#{y}px"
 
     setWidth = (w) ->
         el.style.width = "#{w}px"
@@ -66,6 +68,8 @@ Entity = ({width=100, height=100}={})->
 
         setWidth(width)
         setHeight(height)
+        setTop(top)
+        setLeft(left)
 
         el.appendChild right = div 'right'
         el.appendChild bottom = div 'bottom'

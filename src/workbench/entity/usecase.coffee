@@ -1,7 +1,7 @@
 Usecase = require 'usecase'
 Entity = require('./')
 
-entity = Entity()
+entity = Entity(size: [75, 40], position: [200,100])
 usecase = Usecase(entity)
 
 usecase.addButton 'Get position', ->
@@ -26,5 +26,3 @@ el.style['background-color'] = 'teal'
 el.style.width = '100%'
 el.style.height = '100%'
 entity.getBody().appendChild el
-
-entity.setPosition 10, 50
