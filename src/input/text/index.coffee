@@ -26,6 +26,9 @@ Text = ({placeholder=''}={}) ->
                 shared.trigger 'submit'
             updateCross()
 
+        input.addEventListener 'click', (e) ->
+            e.stopPropagation()
+
         cross = div('input-cross')
         cross.addEventListener 'click', ->
             input.value = ''
