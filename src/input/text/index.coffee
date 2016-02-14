@@ -30,7 +30,7 @@ Text = ({placeholder=''}={}) ->
             e.stopPropagation()
 
         cross = div('input-cross')
-        cross.addEventListener 'click', ->
+        cross.addEventListener 'click', (e) ->
             input.value = ''
             e.stopPropagation()
         cross.style.display = 'none'
