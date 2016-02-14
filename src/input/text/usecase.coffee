@@ -13,6 +13,9 @@ usecase.addButton 'Get text', ->
 usecase.addButton 'Set text', ->
     text.setText('Nonworks!')
 
+usecase.addButton 'Give focus', ->
+    text.setFocus()
+
 text.on 'submit', ->
     usecase.notify 'submit!'
 

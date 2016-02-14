@@ -43,4 +43,7 @@ Text = ({placeholder=''}={}) ->
         input.value = newText
         updateCross()
 
+    shared.setFocus = ->
+        input.focus()
+
     shared
