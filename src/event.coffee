@@ -2,7 +2,7 @@ module.exports =
 Event = ->
     cbs = {}
 
-    {
+    me = {
         registerEvents: (events...) ->
             cbs[e] = [] for e in events
             null
@@ -26,5 +26,5 @@ Event = ->
                 other.getEvents().forEach (event) ->
                     do (other, event) ->
                         cbs[event] or= []
-                        other.on event, (args...) -> trigger event, args...
+                        other.on event, (args...) -> me.trigger event, args...
     }
