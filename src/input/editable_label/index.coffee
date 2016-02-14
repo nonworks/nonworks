@@ -30,6 +30,7 @@ EditableLabel = ({text=''}={}) ->
         labelEl.addEventListener 'click', (e) ->
             e.stopPropagation?()
             showInput()
+            text.setFocus()
 
         text.on 'submit', ->
             component.setText text.getText()
