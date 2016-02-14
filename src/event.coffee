@@ -21,7 +21,7 @@ Event = ->
         hasEvent: (event) ->
             (event in cbs)
 
-        pipeFrom: (others...) ->
+        pipeEventsFrom: (others...) ->
             others.forEach (other) ->
                 other.getEvents().forEach (event) ->
                     do (other, event) ->
