@@ -3,11 +3,13 @@ Component = require 'component'
 {elem} = require 'elements'
 
 module.exports =
-Button = ({label, icon, theme}) ->
-    shared = Component()
-    shared.registerEvents 'click'
+Button = ({label='', icon, theme}={}) ->
+    component = Component()
+    component.registerEvents 'click'
 
-    shared.render = ->
+    el = undefined
+
+    component.render = ->
         el = elem 'button'
         el.type = 'submit'
         el.textContent = label
@@ -20,8 +22,11 @@ Button = ({label, icon, theme}) ->
             el.classList.add "theme-#{theme}"
 
         el.addEventListener 'click', ->
-            shared.trigger 'click'
+            component.trigger 'click'
 
         el
 
-    shared
+    component.setLabel = (l) ->
+        el.textContent = l
+
+    component
