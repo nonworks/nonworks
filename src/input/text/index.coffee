@@ -4,26 +4,26 @@ Component = require 'component'
 
 module.exports =
 Text = ({placeholder=''}={}) ->
-    shared = Component()
+    component = Component()
     input= null
     cross = undefined
 
-    shared.registerEvents 'submit'
+    component.registerEvents 'submit'
 
     updateCross = ->
-        if shared.getText().length > 0
+        if component.getText().length > 0
             cross.style.display = 'block'
         else
             cross.style.display = 'none'
 
-    shared.render = ->
+    component.render = ->
         el = div 'input'
 
         input = elem 'input'
         input.setAttribute 'placeholder', (placeholder or '')
         input.addEventListener 'keyup', (e) ->
             if e.which == 13 or e.keyCode == 13
-                shared.trigger 'submit'
+                component.trigger 'submit'
             updateCross()
 
         input.addEventListener 'click', (e) ->
@@ -40,14 +40,17 @@ Text = ({placeholder=''}={}) ->
 
         el
 
-    shared.getText = ->
+    component.setPlaceholder = (text) ->
+        input.setAttribute 'placeholder', text
+
+    component.getText = ->
         input.value
 
-    shared.setText = (newText) ->
+    component.setText = (newText) ->
         input.value = newText
         updateCross()
 
-    shared.setFocus = ->
+    component.setFocus = ->
         input.focus()
 
-    shared
+    component
