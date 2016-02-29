@@ -1,50 +1,51 @@
 require('insert-css')(require('./index.styl'))
+{elem, div} = require 'elements'
+
 Component = require 'component'
 Text = require '../text'
-{elem, div} = require 'elements'
 
 module.exports =
 EditableLabel = ({text=''}={}) ->
-    defaultText = text
     component = Component()
-    text = Text()
-    textEl = undefined
-    labelEl = undefined
 
+    # Public
+    component.mixin {
+        getEl: -> el
+        getText: -> text.getText()
+
+        setText: (newText) ->
+            labelEl.textContent = newText
+            text.setText(newText)
+    }
+
+    # Private
+    hideInput = -> textEl.style.display = 'none'
+    showInput = -> textEl.style.display = 'block'
+
+    # Constructor
+    defaultText = text
+    text = Text()
+
+    el = div 'editable-label'
+
+    el.appendChild labelEl = div 'editable-label-text'
+    el.appendChild textEl = text.render()
+
+    component.setText defaultText
+
+    # Binding
     component.registerEvents 'change'
 
-    hideInput = ->
-        textEl.style.display = 'none'
+    labelEl.addEventListener 'click', (e) ->
+        e.stopPropagation?()
+        showInput()
+        text.setFocus()
 
-    showInput = ->
-        textEl.style.display = 'block'
-
-    component.render = ->
-        el = div 'editable-label'
-
-        el.appendChild labelEl = div 'editable-label-text'
-        el.appendChild textEl = text.render()
-
-        component.setText defaultText
-
-        labelEl.addEventListener 'click', (e) ->
-            e.stopPropagation?()
-            showInput()
-            text.setFocus()
-
-        text.on 'submit', ->
-            component.setText text.getText()
-            hideInput()
-            component.trigger 'change'
-
+    text.on 'submit', ->
+        component.setText text.getText()
         hideInput()
+        component.trigger 'change'
 
-        el
-
-    component.getText = text.getText
-
-    component.setText = (newText) ->
-        labelEl.textContent = newText
-        text.setText(newText)
+    hideInput()
 
     component

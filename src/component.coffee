@@ -3,4 +3,9 @@ extend = require 'extend'
 
 module.exports =
 Component = ->
-    shared = extend {}, Event()
+    component = extend {}, Event()
+
+    component.mixin = (otherObj) ->
+        extend component, otherObj
+
+    component

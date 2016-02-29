@@ -1,19 +1,23 @@
 require('insert-css')(require './index.styl')
+{div} = require 'elements'
+
 Component = require 'component'
 
 module.exports =
 Main = ->
     component = Component()
 
-    component.render = ->
-        el = document.createDocumentFragment()
+    # Public
+    component.getEl = -> el
 
-        hello = document.createElement 'div'
-        hello.classList.add 'main'
-        hello.textContent = "Wee! - I'm flying without wings!"
+    # Private
 
-        el.appendChild hello
+    # Constructor
+    el = document.createDocumentFragment()
 
-        el
+    hello = div 'main', textContent: "Wee! - I'm flying without wings!"
+    el.appendChild hello
+
+    # Binding
 
     component

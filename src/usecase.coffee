@@ -8,7 +8,7 @@ module.exports = (component) ->
 
     el.appendChild buttons
     el.appendChild notify
-    el.appendChild cel = component.render()
+    el.appendChild cel = component.getEl()
 
     notify.style['background-color'] = 'white'
 

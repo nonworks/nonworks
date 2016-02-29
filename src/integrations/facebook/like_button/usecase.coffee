@@ -1,7 +1,7 @@
 Usecase = require 'usecase'
 FacebookLikeButton = require './'
 
-it = FacebookLikeButton('https://www.facebook.com/')
+it = FacebookLikeButton(site: 'https://www.facebook.com/')
 usecase = Usecase(it)
 
 module.exports = usecase.build()

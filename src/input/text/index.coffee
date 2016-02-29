@@ -5,52 +5,55 @@ Component = require 'component'
 module.exports =
 Text = ({placeholder=''}={}) ->
     component = Component()
-    input= null
-    cross = undefined
 
-    component.registerEvents 'submit'
+    # Public
+    component.mixin {
+        getEl: -> el
 
+        setPlaceholder: (text) ->
+            input.setAttribute 'placeholder', text
+
+        getText: ->
+            input.value
+
+        setText: (newText) ->
+            input.value = newText
+            updateCross()
+
+        setFocus: ->
+            input.focus()
+    }
+
+    # Private
     updateCross = ->
         if component.getText().length > 0
             cross.style.display = 'block'
         else
             cross.style.display = 'none'
 
-    component.render = ->
-        el = div 'input'
+    # Constructor
+    el = div 'input'
 
-        input = elem 'input'
-        input.setAttribute 'placeholder', (placeholder or '')
-        input.addEventListener 'keyup', (e) ->
-            if e.which == 13 or e.keyCode == 13
-                component.trigger 'submit'
-            updateCross()
+    input = elem 'input', placeholder: placeholder
+    cross = div 'input-cross'
+    cross.style.display = 'none'
 
-        input.addEventListener 'click', (e) ->
-            e.stopPropagation()
+    el.appendChild input
+    el.appendChild cross
 
-        cross = div('input-cross')
-        cross.addEventListener 'click', (e) ->
-            input.value = ''
-            e.stopPropagation()
-        cross.style.display = 'none'
+    # Binding
+    component.registerEvents 'submit'
 
-        el.appendChild input
-        el.appendChild cross
-
-        el
-
-    component.setPlaceholder = (text) ->
-        input.setAttribute 'placeholder', text
-
-    component.getText = ->
-        input.value
-
-    component.setText = (newText) ->
-        input.value = newText
+    input.addEventListener 'keyup', (e) ->
+        if e.which == 13 or e.keyCode == 13
+            component.trigger 'submit'
         updateCross()
 
-    component.setFocus = ->
-        input.focus()
+    input.addEventListener 'click', (e) ->
+        e.stopPropagation()
+
+    cross.addEventListener 'click', (e) ->
+        input.value = ''
+        e.stopPropagation()
 
     component
