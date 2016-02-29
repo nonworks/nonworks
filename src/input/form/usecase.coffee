@@ -12,7 +12,6 @@ usecase = Usecase(form)
 usecase.setWidth 500
 
 form.on 'send', (data) ->
-    console.log 'hello'
     usecase.notify(data)
 
 module.exports = usecase.build()

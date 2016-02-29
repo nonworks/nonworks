@@ -6,16 +6,16 @@ Button = require 'input/button'
 
 module.exports =
 Form = ({fields, submit}) ->
-    shared = Component()
-    shared.registerEvents 'send'
+    component = Component()
+    component.registerEvents 'send'
 
     inputs = {}
 
-    shared.render = ->
+    component.render = ->
         el = div 'form'
 
         for k,v of fields
-            inputs[k] = Text(placeholder: v.placeholder)
+            text = inputs[k] = Text()
             el.appendChild inputs[k].render()
 
         button = Button(label: submit)
@@ -25,8 +25,8 @@ Form = ({fields, submit}) ->
             data = {}
             for k,v of fields
                 data[k] = inputs[k].getText()
-            shared.trigger 'send', data
+            component.trigger 'send', data
 
         el
 
-    shared
+    component
