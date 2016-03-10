@@ -3,7 +3,7 @@ Component = require 'component'
 {elem, div} = require 'elements'
 
 module.exports =
-Text = ({placeholder=''}={}) ->
+Text = ({placeholder='', type='text'}={}) ->
     component = Component()
 
     # Public
@@ -34,7 +34,7 @@ Text = ({placeholder=''}={}) ->
     # Constructor
     el = div 'input'
 
-    input = elem 'input', placeholder: placeholder
+    input = elem 'input', placeholder: placeholder, type: type
     cross = div 'input-cross'
     cross.style.display = 'none'
 
