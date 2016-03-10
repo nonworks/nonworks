@@ -18,7 +18,7 @@ Form = ({fields, submit}) ->
     inputs = {}
 
     for k,v of fields
-        text = inputs[k] = Text()
+        text = inputs[k] = Text(v)
         el.appendChild inputs[k].getEl()
 
     button = Button(label: submit)
