@@ -23,9 +23,10 @@ Form = ({fields, submit}) ->
     # Constructor
     el = div 'form'
     inputs = {}
+    lastInput = undefined
 
     for k,v of fields
-        text = inputs[k] = Text(v)
+        text = lastInput = inputs[k] = Text(v)
         if v.type == 'password'
             text.clear = true
         el.appendChild inputs[k].getEl()
@@ -37,6 +38,9 @@ Form = ({fields, submit}) ->
     component.registerEvents 'send'
 
     button.on 'click', ->
+        send()
+
+    lastInput.on 'submit', ->
         send()
 
     component
