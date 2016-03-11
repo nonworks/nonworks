@@ -19,6 +19,8 @@ Form = ({fields, submit}) ->
 
     for k,v of fields
         text = inputs[k] = Text(v)
+        if v.type == 'password'
+            text.clear = true
         el.appendChild inputs[k].getEl()
 
     button = Button(label: submit)
@@ -31,6 +33,8 @@ Form = ({fields, submit}) ->
         data = {}
         for k,v of fields
             data[k] = inputs[k].getText()
+            if inputs[k].clear
+                inputs[k].setText ''
         component.trigger 'send', data
 
     component

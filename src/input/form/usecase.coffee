@@ -5,6 +5,7 @@ form = Form(
     fields: {
         first: { placeholder: 'First one' }
         second: { placeholder: 'Second one' }
+        third: { placeholder: 'Password', type: 'password' }
     }
     submit: 'This would send it'
 )
