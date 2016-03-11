@@ -54,7 +54,7 @@ app.get '/js', (req, res) ->
 
 app.get '/', (req, res) ->
     res.setHeader 'Content-Type', 'text/html; charset=utf-8'
-    res.send('<!DOCTYPE html><script src="js"></script>')
+    res.send('<!DOCTYPE html><body style="display:none"></body><script src="js"></script>')
 
 iface = if debug then 'localhost' else '0.0.0.0'
 port = process.env.PORT or 3000
