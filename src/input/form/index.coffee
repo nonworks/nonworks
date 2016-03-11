@@ -12,6 +12,13 @@ Form = ({fields, submit}) ->
     component.getEl = -> el
 
     # Private
+    send = ->
+        data = {}
+        for k,v of fields
+            data[k] = inputs[k].getText()
+            if inputs[k].clear
+                inputs[k].setText ''
+        component.trigger 'send', data
 
     # Constructor
     el = div 'form'
@@ -30,11 +37,6 @@ Form = ({fields, submit}) ->
     component.registerEvents 'send'
 
     button.on 'click', ->
-        data = {}
-        for k,v of fields
-            data[k] = inputs[k].getText()
-            if inputs[k].clear
-                inputs[k].setText ''
-        component.trigger 'send', data
+        send()
 
     component
