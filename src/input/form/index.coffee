@@ -12,6 +12,10 @@ Form = ({fields, submit}) ->
     # Public
     component.getEl = -> el
 
+    component.update = (data) ->
+        for k,v of data
+            inputs[k].setText(v)
+
     # Private
     send = ->
         data = {}

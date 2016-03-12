@@ -13,6 +13,14 @@ form = Form(
 usecase = Usecase(form)
 usecase.setWidth 500
 
+usecase.addButton 'Set Form Data', ->
+    form.update {
+        first: 1
+        second: 2
+        third: '123'
+        description: 'Description'
+    }
+
 form.on 'send', (data) ->
     usecase.notify(data)
 
