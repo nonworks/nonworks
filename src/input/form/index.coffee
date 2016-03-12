@@ -2,6 +2,7 @@
 
 Component = require 'component'
 Text = require 'input/text'
+TextArea = require 'input/textarea'
 Button = require 'input/button'
 
 module.exports =
@@ -26,7 +27,11 @@ Form = ({fields, submit}) ->
     lastInput = undefined
 
     for k,v of fields
-        text = lastInput = inputs[k] = Text(v)
+        klass = if v.type == 'textarea'
+            TextArea
+        else
+            Text
+        text = lastInput = inputs[k] = klass(v)
         if v.type == 'password'
             text.clear = true
         el.appendChild inputs[k].getEl()

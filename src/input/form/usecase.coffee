@@ -6,6 +6,7 @@ form = Form(
         first: { placeholder: 'First one' }
         second: { placeholder: 'Second one' }
         third: { placeholder: 'Password', type: 'password' }
+        description: { placeholder: 'Description', type: 'textarea' }
     }
     submit: 'This would send it'
 )
