@@ -1,7 +1,7 @@
 Usecase = require 'usecase'
-Text = require './'
+TextArea = require './'
 
-text = Text placeholder: 'Placeholder'
+text = TextArea placeholder: 'Placeholder'
 usecase = Usecase(text)
 
 usecase.setWidth 250
