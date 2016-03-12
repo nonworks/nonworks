@@ -42,8 +42,19 @@ UsecaseBuilder = (component) ->
                 var xhr = new XMLHttpRequest();
                 xhr.open('get', '/dev/reload');
 
+                var done = false;
+
+                var abortAndRetry = function() {
+                    if (!done) {
+                        xhr.abort();
+                    }
+                }
+
+                setTimeout(abortAndRetry, 10000);
+
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4) {
+                        done = true;
                         if (xhr.status === 200) location.reload(true);
                         else if (xhr.status === 500) throw "Error in reloader" + xhr.responseText;
                         else setTimeout(reload,500);
