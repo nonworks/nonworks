@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Web Applications that work without frameworks.",
   "scripts": {
-    "start": "coffee scripts/server.coffee",
+    "start": "coffee server/scripts/server.coffee",
     "test": "node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive"
   },
   "repository": {

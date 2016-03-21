@@ -6,7 +6,7 @@ bundle = require './lib/bundle'
 app = express()
 app.disable('etag')
 
-app.use(express.static('public'));
+app.use(express.static('client/public'));
 
 debug = process.env.NODE_ENV != 'production'
 
@@ -48,7 +48,7 @@ app.get '/js', (req, res) ->
         res.send compiledJs
     else
         console.log 'compiling'
-        bundle 'src/index.coffee', (err, buf) ->
+        bundle 'client/src/index.coffee', (err, buf) ->
             compiledJs = buf
             res.send compiledJs
             res.end()

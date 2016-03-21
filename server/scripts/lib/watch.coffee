@@ -2,7 +2,7 @@ Process = require 'child_process'
 
 module.exports =
 watch = (cb) ->
-    cmd = Process.spawn 'inotifywait', ['-rm', '-e', 'CLOSE_WRITE', 'src/']
+    cmd = Process.spawn 'inotifywait', ['-rm', '-e', 'CLOSE_WRITE', 'client/src/']
 
     cmd.stdout.on 'data', (output) ->
         cb()

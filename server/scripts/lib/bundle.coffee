@@ -7,12 +7,12 @@ bundle = (file, cb) ->
       cache: {},
       packageCache: {},
       fullPaths: false,
-      paths: ['src'],
+      paths: ['client/src'],
       extensions: ['.coffee', '.styl']
       transform: [
           ['coffeeify'],
-          ['jadeify', {basedir: "src", pretty: false}],
-          [stylusify, {paths: ['src']}]
+          ['jadeify', {basedir: "client/src", pretty: false}],
+          [stylusify, {paths: ['client/src']}]
       ]
     })
 
