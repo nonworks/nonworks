@@ -57,6 +57,12 @@ app.get '/', (req, res) ->
     res.setHeader 'Content-Type', 'text/html; charset=utf-8'
     res.send('<!DOCTYPE html><body style="display:none"><script src="js"></script></body>')
 
+path = require("path").join(__dirname, "../endpoints");
+dir = require("fs").readdirSync(path)
+for file in dir
+    if file[0] != '.' and /\.coffee$/.test(file)
+        require('../endpoints/'+file)(app)
+
 iface = if debug then 'localhost' else '0.0.0.0'
 port = process.env.PORT or 3000
 
