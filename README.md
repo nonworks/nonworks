@@ -7,3 +7,13 @@ This is in progress and the author is very, very, **very**, busy writing code. D
 Are you interested? Good! Give me an incentive, drop a message and let me know.
 
 *Wee! I can fly without wings!*
+
+
+## Prerequisites
+
+You will need the following installed:
+* Git
+* inotifywait
+* NVM 
+* Direnv
+
