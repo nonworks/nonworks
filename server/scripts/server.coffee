@@ -2,10 +2,12 @@ express = require 'express'
 UsecaseBuilder = require './lib/usecase_builder'
 watch = require './lib/watch'
 bundle = require './lib/bundle'
+bodyParser = require 'body-parser'
 
 app = express()
 app.disable('etag')
 
+app.use(bodyParser.json())
 app.use(express.static('client/public'));
 
 debug = process.env.NODE_ENV != 'production'
