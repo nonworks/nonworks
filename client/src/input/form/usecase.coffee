@@ -3,6 +3,7 @@ Form = require './'
 
 form = Form(
     fields: {
+        disabled: { disabled: true }
         first: { placeholder: 'First one' }
         second: { placeholder: 'Second one' }
         third: { placeholder: 'Password', type: 'password' }
@@ -15,6 +16,7 @@ usecase.setWidth 500
 
 usecase.addButton 'Set Form Data', ->
     form.update {
+        disabled: 'this one is disabled'
         first: 1
         second: 2
         third: '123'

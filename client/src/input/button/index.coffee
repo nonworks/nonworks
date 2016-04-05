@@ -19,7 +19,7 @@ Button = ({label='', icon, theme}={}) ->
     # Private
 
     # Constructor
-    el = elem 'button', type: 'submit', textContent: label
+    el = elem 'button', '.button', type: 'submit', textContent: label
 
     if icon
         el.classList.add 'icon'
