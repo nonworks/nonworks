@@ -23,6 +23,7 @@
     "jadeify": "^4.5.0",
     "js-string-escape": "^1.0.0",
     "stylus": "^0.52.4",
+    "uuid": "^2.0.1",
     "watchify": "^3.6.1"
   },
   "devDependencies": {
