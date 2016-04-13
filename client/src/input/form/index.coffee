@@ -14,7 +14,8 @@ Form = ({fields, submit}) ->
 
     component.update = (data) ->
         for k,v of data
-            inputs[k].setText(v)
+            if inputs[k]?
+                inputs[k].setText(v)
 
     # Private
     send = ->
