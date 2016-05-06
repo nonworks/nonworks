@@ -17,6 +17,10 @@ Form = ({fields, submit}) ->
             if inputs[k]?
                 inputs[k].setText(v)
 
+    component.clear = ->
+        for k,v of inputs
+            v.setText ''
+
     # Private
     send = ->
         data = {}
