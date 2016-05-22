@@ -14,6 +14,7 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "browserify": "^12.0.1",
+    "browserify-incremental": "^3.1.1",
     "browserify-transform-tools": "^1.5.0",
     "bundle-collapser": "^1.2.1",
     "coffeeify": "^1.1.0",
@@ -24,7 +25,8 @@
     "js-string-escape": "^1.0.0",
     "stylus": "^0.52.4",
     "uuid": "^2.0.1",
-    "watchify": "^3.6.1"
+    "watchify": "^3.6.1",
+    "yamlify": "^0.1.3"
   },
   "devDependencies": {
     "chai": "^3.4.1",
