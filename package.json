@@ -4,6 +4,7 @@
   "description": "Web Applications that work without frameworks.",
   "scripts": {
     "start": "coffee server/scripts/server.coffee",
+    "dev": "nodemon --watch server server/scripts/server.coffee",
     "test": "node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive"
   },
   "repository": {
